@@ -22,7 +22,7 @@ class App extends React.Component {
     }
 
     getItem() {
-      axios.get(`/data/${window.location.pathname.slice(1)}`)
+      axios.get(`http://localhost:5152/data/${window.location.pathname.slice(1)}`)
       .then((response) => {
         console.log(response.data)
         this.setState({
@@ -32,7 +32,7 @@ class App extends React.Component {
     };
 
     updateButtons() {
-      axios.patch(`/data/${window.location.pathname.slice(1)}`, {
+      axios.patch(`http://localhost:5152/data/${window.location.pathname.slice(1)}`, {
         selectedSize: this.state.selectedSize,
         selectedColor: this.state.selectedColor,
         selectedQty: this.state.selectedQty
@@ -41,7 +41,6 @@ class App extends React.Component {
         this.getItem();
         this.toggleBox();
       })
-      
     }
 
     updateSize(event){

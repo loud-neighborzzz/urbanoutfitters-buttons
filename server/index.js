@@ -3,6 +3,11 @@ const bodyParser = require('body-parser');
 const Schema = require('../db/Schema.js');
 const app = express();
 const PORT = 5152;
+const cors = require('cors');
+const morgan = require('morgan');
+
+app.use(morgan('dev'));
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../client/dist'));
@@ -28,3 +33,4 @@ app.patch('/data/:id', (req, res) => {
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
+
