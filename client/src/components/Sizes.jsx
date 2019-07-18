@@ -1,4 +1,5 @@
 import React from "react";
+import style from '../style.css'
 
 const Sizes = (props) => {
   return (
@@ -6,8 +7,8 @@ const Sizes = (props) => {
       {
         props.sizes.map((size, i) => {
           return (
-            <div className="sizeCont" key={i}>
-              <button onClick={props.changeSize} value={size} className="size">{size}</button>
+            <div className={style["sizeCont"]}   key={i}>
+              <button onClick={props.changeSize} value={size} className={style["size"]}>{size}</button>
             </div>
           )
         })

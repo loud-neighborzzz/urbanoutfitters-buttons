@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Items from './Items.jsx';
 import AddToBag from './AddToBag.jsx';
+import style from '../style.css'
 
 class App extends React.Component {
     constructor(props) {

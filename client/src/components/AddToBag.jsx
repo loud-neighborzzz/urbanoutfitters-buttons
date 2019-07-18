@@ -1,4 +1,5 @@
 import React from "react";
+import style from '../style.css'
 
 const items = (num) => {
   if (num <= 2){
@@ -14,21 +15,20 @@ const AddToBag = (props) => {
       {
         props.data.map((item, i) => {
           return ( 
-            <div className="bigBox" key={i} id={`${item.id}`}>
-              <div className="text">
-                <p className="quatity"> {item.selectedQty} {items(item.selectedQty)} </p>
+            <div className={style["bigBox"]} key={i} id={`${item.id}`}>
+              <div className={style["text"]}>
+                <p className={style["quatity"]}> {item.selectedQty} {items(item.selectedQty)} </p>
                 <p> {item.name} </p>
                 <p> {item.price}</p>
 
                 <p> Color: {item.selectedColor || item.colors[0]}</p>
                 <p> Size: { item.selectedSize || item.sizes[0] }</p>
-                <button className="checkout"> Checkout </button>
+                <button className={style["checkout"]}> Checkout </button>
               </div>
             </div>
           )
         })
       }
-
     </div>
   )
 }
