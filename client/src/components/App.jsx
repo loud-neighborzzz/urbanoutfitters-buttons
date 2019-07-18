@@ -20,9 +20,9 @@ class App extends React.Component {
       this.updateButtons = this.updateButtons.bind(this);
       this.toggleBox = this.toggleBox.bind(this);
     }
-
+    
     getItem() {
-      axios.get(`http://localhost:5152/data/${window.location.pathname.slice(1)}`)
+      axios.get(`http://ec2-52-15-33-213.us-east-2.compute.amazonaws.com:5152/data/${window.location.pathname.slice(1)}`)
       .then((response) => {
         console.log(response.data)
         this.setState({
@@ -32,7 +32,7 @@ class App extends React.Component {
     };
 
     updateButtons() {
-      axios.patch(`http://localhost:5152/data/${window.location.pathname.slice(1)}`, {
+      axios.patch(`http://ec2-52-15-33-213.us-east-2.compute.amazonaws.com:5152/data/${window.location.pathname.slice(1)}`, {
         selectedSize: this.state.selectedSize,
         selectedColor: this.state.selectedColor,
         selectedQty: this.state.selectedQty
