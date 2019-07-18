@@ -4,6 +4,10 @@ import Items from './Items.jsx';
 import AddToBag from './AddToBag.jsx';
 import style from '../style.css'
 
+// let baseUrl = `http://localhost:5152/data/${window.location.pathname.slice(1)}`;
+let baseUrl = `http://ec2-52-15-33-213.us-east-2.compute.amazonaws.com:5152/data/${window.location.pathname.slice(1)}`;
+
+
 class App extends React.Component {
     constructor(props) {
       super(props);
@@ -22,9 +26,8 @@ class App extends React.Component {
       this.toggleBox = this.toggleBox.bind(this);
     }
     
-    //http://ec2-52-15-33-213.us-east-2.compute.amazonaws.com:5152
     getItem() {
-      axios.get(`/data/${window.location.pathname.slice(1)}`)
+      axios.get(baseUrl)
       .then((response) => {
         console.log(response.data)
         this.setState({
@@ -34,7 +37,7 @@ class App extends React.Component {
     };
 
     updateButtons() {
-      axios.patch(`/data/${window.location.pathname.slice(1)}`, {
+      axios.patch(baseUrl, {
         selectedSize: this.state.selectedSize,
         selectedColor: this.state.selectedColor,
         selectedQty: this.state.selectedQty
