@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
-    "build": "webpack -d --watch",
+    "build": "webpack --watch --mode production",
     "seed": "node db/seed.js",
     "test": "jest"
   },
