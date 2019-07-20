@@ -5,7 +5,9 @@ const app = express();
 const PORT = 5152;
 const cors = require('cors');
 const morgan = require('morgan');
+const compression = require('compression');
 
+app.use(compression());
 app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json());
